@@ -1,627 +1,218 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cahaya Dakwah</title>
-  <meta name="description" content="Website materi dakwah Islami berisi pengingat, materi dasar, dalil pilihan, dan artikel singkat yang mudah dibaca." />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azis Kurniawan | Profil Overpowered</title>
 
-    :root {
-      --primary: #0f3d2e;
-      --primary-dark: #0b2c21;
-      --secondary: #f4d58d;
-      --bg: #f7faf7;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --white: #ffffff;
-      --soft: #eef6f0;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      --radius: 18px;
-    }
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
 
-    html {
-      scroll-behavior: smooth;
-    }
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:#e2e8f0;
+line-height:1.6;
+}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
 
-    .container {
-      width: 90%;
-      max-width: 1180px;
-      margin: auto;
-    }
+.hero{
+text-align:center;
+padding:80px 20px;
+}
 
-    header {
-      background: rgba(15, 61, 46, 0.95);
-      color: var(--white);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    }
+.hero h1{
+font-size:3rem;
+margin-bottom:10px;
+color:#38bdf8;
+}
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
-      gap: 20px;
-    }
+.hero p{
+font-size:1.2rem;
+opacity:0.9;
+}
 
-    .logo {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--secondary);
-      letter-spacing: 0.4px;
-    }
+.tagline{
+margin-top:15px;
+font-style:italic;
+color:#94a3b8;
+}
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 22px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.card{
+background:#1e293b;
+border-radius:16px;
+padding:30px;
+margin-top:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
 
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.2s;
-    }
+h2{
+margin-bottom:15px;
+color:#38bdf8;
+}
 
-    nav a:hover {
-      color: var(--secondary);
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
 
-    .hero {
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(rgba(15, 61, 46, 0.86), rgba(15, 61, 46, 0.86)),
-        url('https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1400&q=80') center/cover;
-      color: var(--white);
-      text-align: center;
-      padding: 80px 20px;
-    }
+.badge{
+display:inline-block;
+background:#0ea5e9;
+color:white;
+padding:6px 12px;
+border-radius:999px;
+font-size:0.8rem;
+margin-bottom:10px;
+}
 
-    .hero-content {
-      max-width: 860px;
-      margin: auto;
-    }
+.fun{
+background:#020617;
+border:1px solid rgba(255,255,255,0.06);
+}
 
-    .badge {
-      display: inline-block;
-      background: rgba(244, 213, 141, 0.18);
-      border: 1px solid rgba(244, 213, 141, 0.35);
-      color: var(--secondary);
-      padding: 8px 16px;
-      border-radius: 999px;
-      margin-bottom: 22px;
-      font-size: 0.92rem;
-    }
+footer{
+text-align:center;
+padding:40px 20px;
+color:#94a3b8;
+font-size:0.9rem;
+}
 
-    .hero h1 {
-      font-size: 3.1rem;
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
+.social a{
+color:#38bdf8;
+text-decoration:none;
+}
 
-    .hero p {
-      max-width: 720px;
-      margin: 0 auto 28px;
-      font-size: 1.08rem;
-      color: #f1f5f9;
-    }
+.social a:hover{
+text-decoration:underline;
+}
 
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 24px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--secondary);
-      color: var(--primary);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .stats {
-      margin-top: 36px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .stat-box {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 16px;
-      padding: 18px;
-    }
-
-    .stat-box strong {
-      font-size: 1.3rem;
-      display: block;
-      color: var(--secondary);
-      margin-bottom: 4px;
-    }
-
-    .section {
-      padding: 82px 0;
-    }
-
-    .section.alt {
-      background: var(--soft);
-    }
-
-    .section-title {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 42px;
-    }
-
-    .section-title h2 {
-      font-size: 2.15rem;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-    }
-
-    .search-box {
-      max-width: 700px;
-      margin: 0 auto 28px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .search-box input,
-    .search-box select {
-      padding: 14px 16px;
-      border-radius: 12px;
-      border: 1px solid #d1d5db;
-      outline: none;
-      font-size: 0.97rem;
-      background: var(--white);
-    }
-
-    .search-box input {
-      flex: 1 1 340px;
-      min-width: 240px;
-    }
-
-    .search-box select {
-      min-width: 180px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      border: 1px solid rgba(15, 61, 46, 0.06);
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 34px rgba(0,0,0,0.1);
-    }
-
-    .card-tag {
-      display: inline-block;
-      background: #e8f5ea;
-      color: var(--primary);
-      font-size: 0.82rem;
-      padding: 6px 12px;
-      border-radius: 999px;
-      margin-bottom: 14px;
-      font-weight: 700;
-    }
-
-    .card h3 {
-      color: var(--primary);
-      margin-bottom: 10px;
-      font-size: 1.15rem;
-    }
-
-    .card p {
-      color: var(--muted);
-    }
-
-    .dalil-wrap {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-    }
-
-    .dalil-card {
-      background: linear-gradient(180deg, #103c2f, #0b2d22);
-      color: var(--white);
-      border-radius: 22px;
-      padding: 26px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .dalil-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(244,213,141,0.16), transparent 38%);
-      pointer-events: none;
-    }
-
-    .dalil-card p {
-      font-size: 1.04rem;
-      margin-bottom: 14px;
-      position: relative;
-    }
-
-    .dalil-card span {
-      color: var(--secondary);
-      position: relative;
-      font-size: 0.95rem;
-    }
-
-    .highlight {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 26px;
-      align-items: center;
-    }
-
-    .highlight-box {
-      background: var(--white);
-      padding: 28px;
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .highlight-box h3 {
-      font-size: 1.7rem;
-      color: var(--primary);
-      margin-bottom: 14px;
-    }
-
-    .highlight-box p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .highlight-list {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .highlight-list li {
-      background: #f3f8f4;
-      border-radius: 12px;
-      padding: 12px 14px;
-      color: #334155;
-    }
-
-    .cta {
-      background: linear-gradient(135deg, #0f3d2e, #0b2c21);
-      color: var(--white);
-      border-radius: 24px;
-      padding: 40px 30px;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .cta h3 {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .cta p {
-      max-width: 720px;
-      margin: 0 auto 22px;
-      color: #e5e7eb;
-    }
-
-    footer {
-      background: var(--primary-dark);
-      color: #d1d5db;
-      text-align: center;
-      padding: 28px 15px;
-    }
-
-    .footer-note {
-      font-size: 0.95rem;
-      color: #cbd5e1;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    @media (max-width: 900px) {
-      .highlight {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 2.45rem;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .navbar {
-        flex-direction: column;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .section {
-        padding: 68px 0;
-      }
-    }
-  </style>
+@media(max-width:600px){
+.hero h1{font-size:2.2rem}
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="container navbar">
-      <div class="logo">Cahaya Dakwah</div>
-      <nav>
-        <ul>
-          <li><a href="#beranda">Beranda</a></li>
-          <li><a href="#materi">Materi</a></li>
-          <li><a href="#dalil">Dalil</a></li>
-          <li><a href="#artikel">Artikel</a></li>
-          <li><a href="#tentang">Tentang</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <section class="hero" id="beranda">
-    <div class="hero-content container">
-      <div class="badge">Website Materi Dakwah Islami</div>
-      <h1>Menebar Ilmu, Menyejukkan Hati, Menguatkan Iman</h1>
-      <p>
-        Sebuah website sederhana namun elegan untuk menyajikan materi dakwah Islami,
-        dalil pilihan, pengingat harian, dan artikel singkat yang mudah dibaca dari HP maupun laptop.
-      </p>
-      <div class="hero-actions">
-        <a href="#materi" class="btn btn-primary">Jelajahi Materi</a>
-        <a href="#dalil" class="btn btn-secondary">Baca Dalil Pilihan</a>
-      </div>
+<section class="hero">
+<h1>Azis Kurniawan</h1>
+<p>@azzkrnss</p>
+<p class="tagline">Mahasiswa Sistem Informasi yang sedang berusaha mengatur tatanan dunia... minimal mulai dari laptop sendiri.</p>
+</section>
 
-      <div class="stats">
-        <div class="stat-box">
-          <strong>4+</strong>
-          <span>Kategori materi utama</span>
-        </div>
-        <div class="stat-box">
-          <strong>6</strong>
-          <span>Artikel pengingat singkat</span>
-        </div>
-        <div class="stat-box">
-          <strong>100%</strong>
-          <span>Ringan dan mobile friendly</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="container">
 
-  <section class="section" id="materi">
-    <div class="container">
-      <div class="section-title">
-        <h2>Materi Dakwah</h2>
-        <p>
-          Materi dipilih agar mudah dipahami oleh pemula dan tetap relevan sebagai pengingat sehari-hari.
-        </p>
-      </div>
+<div class="card">
+<h2>Biodata Singkat</h2>
+<div class="grid">
+<div>
+<strong>Nama</strong>
+<p>Azis Kurniawan</p>
+</div>
 
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Cari materi atau artikel..." oninput="filterCards()" />
-        <select id="categoryFilter" onchange="filterCards()">
-          <option value="semua">Semua Kategori</option>
-          <option value="akidah">Akidah</option>
-          <option value="ibadah">Ibadah</option>
-          <option value="akhlak">Akhlak</option>
-          <option value="taubat">Taubat</option>
-          <option value="ilmu">Ilmu</option>
-        </select>
-      </div>
+<div>
+<strong>Nickname</strong>
+<p>azzkrnss</p>
+</div>
 
-      <div class="grid" id="materiGrid">
-        <div class="card searchable-card" data-category="akidah">
-          <div class="card-tag">Akidah</div>
-          <h3>Tauhid sebagai Pondasi Hidup</h3>
-          <p>Memahami keesaan Allah, memperkuat keimanan, dan membersihkan hati dari ketergantungan selain kepada-Nya.</p>
-        </div>
+<div>
+<strong>Universitas</strong>
+<p>UIN SUSKA Riau</p>
+</div>
 
-        <div class="card searchable-card" data-category="ibadah">
-          <div class="card-tag">Ibadah</div>
-          <h3>Pentingnya Menjaga Sholat</h3>
-          <p>Sholat adalah tiang agama, pembeda antara iman dan kelalaian, serta penguat hubungan hamba dengan Rabb-nya.</p>
-        </div>
+<div>
+<strong>Jurusan</strong>
+<p>Sistem Informasi</p>
+</div>
 
-        <div class="card searchable-card" data-category="akhlak">
-          <div class="card-tag">Akhlak</div>
-          <h3>Adab kepada Orang Tua</h3>
-          <p>Berbakti, lembut dalam ucapan, dan menghormati orang tua merupakan jalan besar menuju ridha Allah.</p>
-        </div>
+<div>
+<strong>Semester</strong>
+<p>Semester 2 (masih early game)</p>
+</div>
 
-        <div class="card searchable-card" data-category="taubat">
-          <div class="card-tag">Taubat</div>
-          <h3>Jangan Menunda Taubat</h3>
-          <p>Setiap manusia punya salah, namun kemuliaan ada pada mereka yang segera kembali kepada Allah dengan sungguh-sungguh.</p>
-        </div>
+<div>
+<strong>Kota</strong>
+<p>Pekanbaru</p>
+</div>
+</div>
+</div>
 
-        <div class="card searchable-card" data-category="ilmu">
-          <div class="card-tag">Ilmu</div>
-          <h3>Adab Menuntut Ilmu</h3>
-          <p>Ilmu yang bermanfaat lahir dari hati yang tawadhu, niat yang lurus, dan kesabaran dalam belajar.</p>
-        </div>
+<div class="card">
+<h2>Tentang Saya</h2>
+<p>
+Saya adalah mahasiswa Sistem Informasi yang sedang menjelajahi dunia teknologi, coding, dan kadang juga dunia deadline.
+Tujuan hidup saat ini adalah memahami cara kerja sistem... termasuk sistem kehidupan.
+</p>
 
-        <div class="card searchable-card" data-category="akhlak">
-          <div class="card-tag">Akhlak</div>
-          <h3>Menjaga Lisan</h3>
-          <p>Ucapan bisa menjadi sebab pahala atau dosa. Seorang muslim hendaknya berkata baik atau diam.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<p style="margin-top:10px">
+Fokus utama: belajar teknologi, membangun hal menarik di internet, dan tentu saja mencoba tidak error saat hidup sedang compile.
+</p>
+</div>
 
-  <section class="section alt" id="dalil">
-    <div class="container">
-      <div class="section-title">
-        <h2>Dalil Pilihan</h2>
-        <p>Potongan ayat dan hadits sebagai pengingat singkat yang menenangkan jiwa.</p>
-      </div>
+<div class="card">
+<h2>Skill (katanya sih)</h2>
+<div class="grid">
+<div class="fun">
+<span class="badge">Skill</span>
+<p>HTML dasar tapi percaya diri 100%</p>
+</div>
 
-      <div class="dalil-wrap">
-        <div class="dalil-card">
-          <p>“Maka sesungguhnya bersama kesulitan ada kemudahan.”</p>
-          <span>QS. Al-Insyirah: 6</span>
-        </div>
-        <div class="dalil-card">
-          <p>“Dan bersegeralah kamu kepada ampunan dari Tuhanmu.”</p>
-          <span>QS. Ali 'Imran: 133</span>
-        </div>
-        <div class="dalil-card">
-          <p>“Sampaikanlah dariku walau satu ayat.”</p>
-          <span>HR. Bukhari</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="fun">
+<span class="badge">Skill</span>
+<p>Belajar JavaScript tanpa panik</p>
+</div>
 
-  <section class="section" id="artikel">
-    <div class="container">
-      <div class="section-title">
-        <h2>Artikel Pengingat</h2>
-        <p>Artikel singkat untuk renungan, motivasi ibadah, dan penguatan hati.</p>
-      </div>
+<div class="fun">
+<span class="badge">Skill</span>
+<p>Debug kehidupan secara manual</p>
+</div>
 
-      <div class="grid">
-        <div class="card searchable-card" data-category="ibadah">
-          <div class="card-tag">Ibadah</div>
-          <h3>Mengapa Hati Menjadi Tenang Saat Berdzikir?</h3>
-          <p>Karena dzikir mengingatkan hati bahwa pertolongan, harapan, dan penjagaan sejati datang dari Allah.</p>
-        </div>
+<div class="fun">
+<span class="badge">Skill</span>
+<p>Bisa tidur sebelum jam 12 (achievement unlocked)</p>
+</div>
+</div>
+</div>
 
-        <div class="card searchable-card" data-category="taubat">
-          <div class="card-tag">Taubat</div>
-          <h3>Rahmat Allah Lebih Luas dari Dosamu</h3>
-          <p>Jangan biarkan masa lalu menghalangi langkah menuju taubat. Allah membuka pintu ampunan bagi hamba-Nya.</p>
-        </div>
+<div class="card">
+<h2>Prestasi yang Sangat Penting</h2>
+<ul>
+<li>Tidak ngoding = tidak asik</li>
+<li>Berhasil survive semester 2</li>
+<li>Masih hidup walau tugas kampus berdatangan</li>
+<li>Website ini online di internet (lumayan keren)</li>
+</ul>
+</div>
 
-        <div class="card searchable-card" data-category="ilmu">
-          <div class="card-tag">Ilmu</div>
-          <h3>Belajar Agama Sedikit demi Sedikit</h3>
-          <p>Istiqamah dalam belajar lebih baik daripada semangat besar namun mudah terputus di tengah jalan.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="card">
+<h2>Misi Hidup</h2>
+<p>
+Mengatur tatanan dunia... atau minimal mengatur file project supaya tidak berantakan.
+</p>
+</div>
 
-  <section class="section alt" id="tentang">
-    <div class="container highlight">
-      <div class="highlight-box">
-        <h3>Tentang Website Ini</h3>
-        <p>
-          Cahaya Dakwah dirancang sebagai website dakwah Islami yang sederhana, bersih, dan nyaman dibaca.
-          Fokusnya adalah menyampaikan materi dasar secara ringkas, mudah diakses, dan cocok untuk dibuka kapan pun.
-        </p>
-        <ul class="highlight-list">
-          <li>Materi singkat yang mudah dipahami</li>
-          <li>Desain ringan dan nyaman dibuka di HP</li>
-          <li>Cocok untuk personal dakwah, komunitas, atau kajian kecil</li>
-          <li>Mudah diedit dan di-update melalui GitHub</li>
-        </ul>
-      </div>
+<div class="card">
+<h2>Kontak</h2>
+<p class="social">
+Instagram: <a href="https://instagram.com/aziskkss__" target="_blank">@aziskkss__</a>
+</p>
 
-      <div class="cta">
-        <h3>Jadilah Bagian dari Kebaikan</h3>
-        <p>
-          Semoga website ini menjadi wasilah pengingat bagi diri sendiri dan manfaat bagi orang lain.
-          Mulailah dari satu ilmu, satu nasihat, dan satu langkah menuju kebaikan.
-        </p>
-        <a href="#beranda" class="btn btn-primary">Kembali ke Atas</a>
-      </div>
-    </div>
-  </section>
+<p class="social" style="margin-top:8px">
+Email: <a href="mailto:azisskwn32@gmail.com">azisskwn32@gmail.com</a>
+</p>
+</div>
 
-  <footer>
-    <p class="footer-note">© 2026 Cahaya Dakwah. Dibuat untuk menyebarkan ilmu dan kebaikan.</p>
-  </footer>
+</div>
 
-  <script>
-    function filterCards() {
-      const keyword = document.getElementById('searchInput').value.toLowerCase();
-      const category = document.getElementById('categoryFilter').value;
-      const cards = document.querySelectorAll('.searchable-card');
+<footer>
+Website pribadi Azis Kurniawan • dibuat dengan HTML, kopi, dan sedikit ambisi.
+</footer>
 
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        const cardCategory = card.getAttribute('data-category');
-
-        const matchKeyword = text.includes(keyword);
-        const matchCategory = category === 'semua' || category === cardCategory;
-
-        if (matchKeyword && matchCategory) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    }
-  </script>
 </body>
 </html>
