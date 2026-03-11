@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Sederhana</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    header {
+      background: #111827;
+      color: white;
+      padding: 56px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 2.2rem;
+    }
+    header p {
+      margin: 0 auto 20px;
+      max-width: 600px;
+      opacity: 0.9;
+    }
+    .btn {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+    section {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    h2 {
+      margin-top: 0;
+      color: #111827;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      padding: 18px;
+      border-radius: 14px;
+      background: #eef4ff;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #6b7280;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Halo, saya Aziziah</h1>
+    <p>Ini website sederhana yang bisa langsung kamu pakai untuk profil, portfolio, atau tugas kuliah lalu deploy ke Vercel tanpa ngurus server.</p>
+    <a class="btn" href="#kontak">Hubungi Saya</a>
+  </header>
+
+  <main>
+    <section>
+      <h2>Tentang Saya</h2>
+      <p>Saya mahasiswa Sistem Informasi yang tertarik pada pengembangan website, desain antarmuka, dan project digital sederhana yang rapi dan mudah dipakai.</p>
+    </section>
+
+    <section>
+      <h2>Project</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Website Portfolio</h3>
+          <p>Website profil pribadi untuk menampilkan biodata, skill, dan kontak.</p>
+        </div>
+        <div class="card">
+          <h3>Landing Page Produk</h3>
+          <p>Halaman promosi sederhana untuk produk, UMKM, atau tugas kampus.</p>
+        </div>
+        <div class="card">
+          <h3>Aplikasi Tugas</h3>
+          <p>Project latihan frontend sederhana dengan HTML, CSS, dan JavaScript.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skill</h2>
+      <div class="grid">
+        <div class="card">HTML</div>
+        <div class="card">CSS</div>
+        <div class="card">JavaScript</div>
+        <div class="card">UI Dasar</div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <h2>Kontak</h2>
+      <p>Email: aziziah@example.com</p>
+      <p>Instagram: @usernamekamu</p>
+      <p>WhatsApp: 08xxxxxxxxxx</p>
+    </section>
+  </main>
+
+  <footer>s
+    <p>© 2026 Aziziah. Dibuat dengan HTML dan CSS.</p>
+  </footer>
+</body>
+</html>
