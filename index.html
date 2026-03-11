@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Azis Kurniawan | Profil Overpowered</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Azis Kurniawan — Interactive Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-background:linear-gradient(135deg,#0f172a,#1e293b);
+font-family:'Poppins',sans-serif;
+background:radial-gradient(circle at top,#0f172a,#020617);
 color:#e2e8f0;
-line-height:1.6;
+min-height:100vh;
+overflow-x:hidden;
 }
 
 .container{
@@ -22,190 +25,232 @@ padding:40px 20px;
 
 .hero{
 text-align:center;
-padding:80px 20px;
+padding:100px 20px 60px;
 }
 
 .hero h1{
-font-size:3rem;
-margin-bottom:10px;
-color:#38bdf8;
+font-size:3.2rem;
+background:linear-gradient(90deg,#38bdf8,#22c55e,#818cf8);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 .hero p{
-font-size:1.2rem;
-opacity:0.9;
+margin-top:8px;
+color:#cbd5f5;
 }
 
 .tagline{
-margin-top:15px;
+margin-top:18px;
 font-style:italic;
 color:#94a3b8;
 }
 
+button{
+cursor:pointer;
+}
+
 .card{
-background:#1e293b;
-border-radius:16px;
-padding:30px;
+background:rgba(15,23,42,0.75);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.06);
+border-radius:18px;
+padding:28px;
 margin-top:25px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+box-shadow:0 20px 50px rgba(0,0,0,0.45);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
 }
 
 h2{
-margin-bottom:15px;
+margin-bottom:18px;
 color:#38bdf8;
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+gap:16px;
 }
 
-.badge{
-display:inline-block;
-background:#0ea5e9;
-color:white;
-padding:6px 12px;
-border-radius:999px;
-font-size:0.8rem;
-margin-bottom:10px;
-}
-
-.fun{
+.bio-item{
 background:#020617;
+padding:14px;
+border-radius:12px;
 border:1px solid rgba(255,255,255,0.06);
 }
 
-footer{
-text-align:center;
-padding:40px 20px;
+.bio-item strong{
+display:block;
+font-size:.8rem;
 color:#94a3b8;
-font-size:0.9rem;
 }
 
-.social a{
+.bio-item span{
+font-weight:500;
+}
+
+.skill{
+margin-bottom:12px;
+}
+
+.bar{
+height:6px;
+background:#1e293b;
+border-radius:10px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+background:linear-gradient(90deg,#38bdf8,#22c55e);
+width:0;
+transition:1.4s;
+}
+
+.counter{
+font-size:2rem;
+font-weight:700;
 color:#38bdf8;
-text-decoration:none;
 }
 
-.social a:hover{
-text-decoration:underline;
+.fun-btn{
+margin-top:15px;
+padding:10px 18px;
+border-radius:10px;
+border:none;
+background:#38bdf8;
+color:#020617;
+font-weight:600;
 }
 
-@media(max-width:600px){
-.hero h1{font-size:2.2rem}
+.fun-btn:hover{
+background:#22c55e;
 }
+
+.fact{
+margin-top:15px;
+color:#94a3b8;
+}
+
+footer{
+margin-top:40px;
+text-align:center;
+font-size:.9rem;
+color:#94a3b8;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
 </style>
 </head>
 
 <body>
 
+<canvas id="bg"></canvas>
+
 <section class="hero">
 <h1>Azis Kurniawan</h1>
 <p>@azzkrnss</p>
-<p class="tagline">Mahasiswa Sistem Informasi yang sedang berusaha mengatur tatanan dunia... minimal mulai dari laptop sendiri.</p>
+<p class="tagline">Mahasiswa Sistem Informasi yang sedang mencoba mengatur tatanan dunia... minimal mulai dari laptop.</p>
 </section>
 
 <div class="container">
 
 <div class="card">
-<h2>Biodata Singkat</h2>
+<h2>Biodata</h2>
+<div class="grid">
+<div class="bio-item"><strong>Nama</strong><span>Azis Kurniawan</span></div>
+<div class="bio-item"><strong>Nickname</strong><span>azzkrnss</span></div>
+<div class="bio-item"><strong>Universitas</strong><span>UIN SUSKA Riau</span></div>
+<div class="bio-item"><strong>Jurusan</strong><span>Sistem Informasi</span></div>
+<div class="bio-item"><strong>Semester</strong><span>2 (Early Game)</span></div>
+<div class="bio-item"><strong>Kota</strong><span>Pekanbaru</span></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Skill Level</h2>
+
+<div class="skill">
+HTML
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+
+<div class="skill">
+JavaScript
+<div class="bar"><div class="fill" style="width:60%"></div></div>
+</div>
+
+<div class="skill">
+Debugging Life
+<div class="bar"><div class="fill" style="width:70%"></div></div>
+</div>
+
+<div class="skill">
+Sleep Before 12
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
+
+</div>
+
+<div class="card">
+<h2>Statistic Kehidupan</h2>
 <div class="grid">
 <div>
-<strong>Nama</strong>
-<p>Azis Kurniawan</p>
+<div class="counter" data-target="2">0</div>
+Semester Survived
 </div>
 
 <div>
-<strong>Nickname</strong>
-<p>azzkrnss</p>
+<div class="counter" data-target="100">0</div>
+Coffee Consumed
 </div>
 
 <div>
-<strong>Universitas</strong>
-<p>UIN SUSKA Riau</p>
+<div class="counter" data-target="999">0</div>
+Lines of Code (katanya)
 </div>
 
 <div>
-<strong>Jurusan</strong>
-<p>Sistem Informasi</p>
-</div>
-
-<div>
-<strong>Semester</strong>
-<p>Semester 2 (masih early game)</p>
-</div>
-
-<div>
-<strong>Kota</strong>
-<p>Pekanbaru</p>
+<div class="counter" data-target="7">0</div>
+Existential Crisis
 </div>
 </div>
 </div>
 
 <div class="card">
-<h2>Tentang Saya</h2>
-<p>
-Saya adalah mahasiswa Sistem Informasi yang sedang menjelajahi dunia teknologi, coding, dan kadang juga dunia deadline.
-Tujuan hidup saat ini adalah memahami cara kerja sistem... termasuk sistem kehidupan.
-</p>
+<h2>Fun Interaction</h2>
+<p>Klik tombol di bawah untuk fakta random tentang Azis.</p>
 
-<p style="margin-top:10px">
-Fokus utama: belajar teknologi, membangun hal menarik di internet, dan tentu saja mencoba tidak error saat hidup sedang compile.
-</p>
+<button class="fun-btn" onclick="randomFact()">Kasih Fakta Random</button>
+
+<p class="fact" id="factText">Klik tombolnya dulu.</p>
+
 </div>
 
 <div class="card">
-<h2>Skill (katanya sih)</h2>
-<div class="grid">
-<div class="fun">
-<span class="badge">Skill</span>
-<p>HTML dasar tapi percaya diri 100%</p>
-</div>
-
-<div class="fun">
-<span class="badge">Skill</span>
-<p>Belajar JavaScript tanpa panik</p>
-</div>
-
-<div class="fun">
-<span class="badge">Skill</span>
-<p>Debug kehidupan secara manual</p>
-</div>
-
-<div class="fun">
-<span class="badge">Skill</span>
-<p>Bisa tidur sebelum jam 12 (achievement unlocked)</p>
-</div>
-</div>
-</div>
-
-<div class="card">
-<h2>Prestasi yang Sangat Penting</h2>
+<h2>Prestasi</h2>
 <ul>
 <li>Tidak ngoding = tidak asik</li>
 <li>Berhasil survive semester 2</li>
-<li>Masih hidup walau tugas kampus berdatangan</li>
-<li>Website ini online di internet (lumayan keren)</li>
+<li>Website ini berhasil online</li>
+<li>Masih hidup walau deadline kadang datang bersamaan</li>
 </ul>
 </div>
 
 <div class="card">
-<h2>Misi Hidup</h2>
-<p>
-Mengatur tatanan dunia... atau minimal mengatur file project supaya tidak berantakan.
-</p>
-</div>
-
-<div class="card">
 <h2>Kontak</h2>
-<p class="social">
-Instagram: <a href="https://instagram.com/aziskkss__" target="_blank">@aziskkss__</a>
-</p>
-
-<p class="social" style="margin-top:8px">
-Email: <a href="mailto:azisskwn32@gmail.com">azisskwn32@gmail.com</a>
-</p>
+<p>Instagram: <a href="https://instagram.com/aziskkss__" target="_blank">@aziskkss__</a></p>
+<p>Email: <a href="mailto:azisskwn32@gmail.com">azisskwn32@gmail.com</a></p>
 </div>
 
 </div>
@@ -213,6 +258,85 @@ Email: <a href="mailto:azisskwn32@gmail.com">azisskwn32@gmail.com</a>
 <footer>
 Website pribadi Azis Kurniawan • dibuat dengan HTML, kopi, dan sedikit ambisi.
 </footer>
+
+<script>
+
+const counters=document.querySelectorAll('.counter');
+
+counters.forEach(counter=>{
+let update=()=>{
+let target=+counter.getAttribute('data-target');
+let current=+counter.innerText;
+let inc=target/80;
+
+if(current<target){
+counter.innerText=Math.ceil(current+inc);
+setTimeout(update,20);
+}else{
+counter.innerText=target;
+}
+}
+
+update();
+});
+
+const facts=[
+"Azis pernah debugging error yang ternyata cuma kurang titik koma.",
+"Azis percaya semua masalah bisa diselesaikan dengan kopi.",
+"Azis pernah membuka 30 tab StackOverflow sekaligus.",
+"Azis kadang lebih mengerti komputer daripada dirinya sendiri.",
+"Azis sedang mencoba tidak panic saat error muncul.",
+"Azis punya mimpi membuat sesuatu yang dipakai banyak orang di internet."
+];
+
+function randomFact(){
+let fact=facts[Math.floor(Math.random()*facts.length)];
+document.getElementById("factText").innerText=fact;
+}
+
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<70;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(56,189,248,0.7)";
+
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+ctx.fill();
+});
+
+updateParticles();
+}
+
+function updateParticles(){
+particles.forEach(p=>{
+p.y+=p.d;
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
+}
+});
+}
+
+setInterval(draw,33);
+
+</script>
 
 </body>
 </html>
