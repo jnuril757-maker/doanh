@@ -3,71 +3,356 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Azis Kurniawan — PROFIL SINGKAT</title>
+<title>Azis Kurniawan — Final WAH Edition</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-font-family:'Poppins',sans-serif;
-background:radial-gradient(circle at top,#0f172a,#020617 60%);
-color:#e2e8f0;
-overflow-x:hidden;
-transition:.35s ease;
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#0f172a,#020617 60%);
+  color:#e2e8f0;
+  overflow-x:hidden;
+  transition:.35s ease;
 }
 .container{max-width:1120px;margin:auto;padding:40px 20px}
 canvas{position:fixed;inset:0;z-index:-1}
-.top-actions{position:fixed;top:18px;right:18px;display:flex;gap:10px;z-index:20}
-.top-btn{padding:10px 14px;border:none;border-radius:999px;background:rgba(15,23,42,.85);color:#e2e8f0;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);cursor:pointer;font-weight:600}
-.top-btn.accent{background:linear-gradient(90deg,#38bdf8,#22c55e);color:#03111f}
-.hero{text-align:center;padding:90px 20px 50px}
-.hero img{width:190px;height:190px;border-radius:50%;object-fit:cover;border:4px solid #38bdf8;box-shadow:0 0 45px rgba(56,189,248,.55);margin-bottom:20px}
-.hero h1{font-size:3.2rem;background:linear-gradient(90deg,#38bdf8,#22c55e,#818cf8);-webkit-background-clip:text;color:transparent}
+.top-actions{
+  position:fixed;
+  top:18px;
+  right:18px;
+  display:flex;
+  gap:10px;
+  z-index:20
+}
+.top-btn{
+  padding:10px 14px;
+  border:none;
+  border-radius:999px;
+  background:rgba(15,23,42,.85);
+  color:#e2e8f0;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.08);
+  cursor:pointer;
+  font-weight:600
+}
+.top-btn.accent{
+  background:linear-gradient(90deg,#38bdf8,#22c55e);
+  color:#03111f
+}
+.hero{
+  text-align:center;
+  padding:90px 20px 50px
+}
+.hero img{
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #38bdf8;
+  box-shadow:0 0 45px rgba(56,189,248,.55);
+  margin-bottom:20px
+}
+.hero h1{
+  font-size:3.2rem;
+  background:linear-gradient(90deg,#38bdf8,#22c55e,#818cf8);
+  -webkit-background-clip:text;
+  color:transparent
+}
 .hero p{margin-top:8px;color:#cbd5e1}
-.typing{margin-top:14px;color:#38bdf8;font-weight:600;min-height:30px}
-.terminal-box{max-width:780px;margin:24px auto 0;text-align:left;background:rgba(2,6,23,.92);border:1px solid rgba(56,189,248,.18);border-radius:16px;padding:18px 18px 22px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
-.terminal-dots{display:flex;gap:8px;margin-bottom:12px}.terminal-dots span{width:10px;height:10px;border-radius:50%;display:block}.terminal-dots span:nth-child(1){background:#fb7185}.terminal-dots span:nth-child(2){background:#facc15}.terminal-dots span:nth-child(3){background:#4ade80}
-#terminalText{min-height:92px;font-family:monospace;color:#7dd3fc;line-height:1.7}
-.card{background:rgba(15,23,42,.75);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:28px;margin-top:25px;box-shadow:0 20px 50px rgba(0,0,0,.45);transition:.3s;opacity:0;transform:translateY(28px)}
-.card.show{opacity:1;transform:translateY(0)}
-.card:hover{transform:translateY(-8px)}
-h2{margin-bottom:15px;color:#38bdf8}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.bio-item{background:#020617;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.06)}
-.bio-item strong{display:block;font-size:.8rem;color:#94a3b8}
-.skill{margin-bottom:12px}.bar{height:7px;background:#1e293b;border-radius:999px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#38bdf8,#22c55e);width:0;transition:1.5s}
-.counter{font-size:2rem;font-weight:700;color:#38bdf8}
-.fun-btn{margin-top:15px;padding:11px 18px;border-radius:10px;border:none;background:#38bdf8;color:#020617;font-weight:700;cursor:pointer}.fun-btn:hover{background:#22c55e}
-.fact{margin-top:15px;color:#94a3b8}
-.photo-preview{width:100%;max-width:540px;border-radius:18px;margin-top:16px;display:block;box-shadow:0 20px 40px rgba(0,0,0,.45);cursor:pointer}
-.mini-projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.project-chip{background:#020617;border:1px solid rgba(255,255,255,.06);padding:16px;border-radius:14px}
-.project-chip h3{font-size:1rem;margin-bottom:8px;color:#e2e8f0}.project-chip p{font-size:.92rem;color:#94a3b8}
-.photo-modal{position:fixed;inset:0;background:rgba(2,6,23,.82);display:none;align-items:center;justify-content:center;padding:20px;z-index:30}.photo-modal.open{display:flex}.photo-modal-content{position:relative;max-width:900px;width:100%}.photo-modal-content img{width:100%;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.6)}.close-modal{position:absolute;top:-14px;right:-2px;width:42px;height:42px;border:none;border-radius:50%;background:#38bdf8;color:#03111f;font-size:1.6rem;font-weight:700;cursor:pointer}
-.confetti{position:fixed;top:-20px;width:10px;height:16px;background:linear-gradient(180deg,#38bdf8,#22c55e);border-radius:3px;animation:fall linear forwards;z-index:40}
-@keyframes fall{from{transform:translateY(0) rotate(0deg)}to{transform:translateY(110vh) rotate(720deg)}}
-footer{text-align:center;margin-top:40px;color:#94a3b8;font-size:.9rem}
-body.light-mode{background:radial-gradient(circle at top,#dbeafe,#f8fafc);color:#0f172a}
-body.light-mode .card,body.light-mode .top-btn,body.light-mode .terminal-box{background:rgba(255,255,255,.82);color:#0f172a;border-color:rgba(15,23,42,.08)}
-body.light-mode .bio-item,body.light-mode .project-chip{background:#eff6ff;color:#0f172a}
-body.light-mode .hero p,body.light-mode .fact,body.light-mode footer,body.light-mode #terminalText,body.light-mode .bio-item strong,body.light-mode .project-chip p{color:#475569}
-@media(max-width:700px){.hero h1{font-size:2.45rem}.top-actions{left:12px;right:12px;justify-content:center;top:12px}.hero{padding-top:95px}}
+.typing{
+  margin-top:14px;
+  color:#38bdf8;
+  font-weight:600;
+  min-height:30px
+}
+.terminal-box{
+  max-width:780px;
+  margin:24px auto 0;
+  text-align:left;
+  background:rgba(2,6,23,.92);
+  border:1px solid rgba(56,189,248,.18);
+  border-radius:16px;
+  padding:18px 18px 22px;
+  box-shadow:0 20px 40px rgba(0,0,0,.35)
+}
+.terminal-dots{
+  display:flex;
+  gap:8px;
+  margin-bottom:12px
+}
+.terminal-dots span{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  display:block
+}
+.terminal-dots span:nth-child(1){background:#fb7185}
+.terminal-dots span:nth-child(2){background:#facc15}
+.terminal-dots span:nth-child(3){background:#4ade80}
+#terminalText{
+  min-height:92px;
+  font-family:monospace;
+  color:#7dd3fc;
+  line-height:1.7
+}
+.card{
+  background:rgba(15,23,42,.75);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:20px;
+  padding:28px;
+  margin-top:25px;
+  box-shadow:0 20px 50px rgba(0,0,0,.45);
+  transition:.3s;
+  opacity:0;
+  transform:translateY(28px)
+}
+.card.show{
+  opacity:1;
+  transform:translateY(0)
+}
+.card:hover{
+  transform:translateY(-8px)
+}
+h2{
+  margin-bottom:15px;
+  color:#38bdf8
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px
+}
+.bio-item{
+  background:#020617;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.06)
+}
+.bio-item strong{
+  display:block;
+  font-size:.8rem;
+  color:#94a3b8
+}
+.skill{margin-bottom:12px}
+.bar{
+  height:7px;
+  background:#1e293b;
+  border-radius:999px;
+  overflow:hidden
+}
+.fill{
+  height:100%;
+  background:linear-gradient(90deg,#38bdf8,#22c55e);
+  width:0;
+  transition:1.5s
+}
+.counter{
+  font-size:2rem;
+  font-weight:700;
+  color:#38bdf8
+}
+.fun-btn{
+  margin-top:15px;
+  padding:11px 18px;
+  border-radius:10px;
+  border:none;
+  background:#38bdf8;
+  color:#020617;
+  font-weight:700;
+  cursor:pointer
+}
+.fun-btn:hover{
+  background:#22c55e
+}
+.fact{
+  margin-top:15px;
+  color:#94a3b8
+}
+.photo-preview{
+  width:100%;
+  max-width:540px;
+  border-radius:18px;
+  margin-top:16px;
+  display:block;
+  box-shadow:0 20px 40px rgba(0,0,0,.45);
+  cursor:pointer
+}
+.mini-projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px
+}
+.project-chip{
+  background:#020617;
+  border:1px solid rgba(255,255,255,.06);
+  padding:16px;
+  border-radius:14px
+}
+.project-chip h3{
+  font-size:1rem;
+  margin-bottom:8px;
+  color:#e2e8f0
+}
+.project-chip p{
+  font-size:.92rem;
+  color:#94a3b8
+}
+.timeline{
+  position:relative;
+  margin-top:10px;
+  padding-left:34px
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:8px;
+  top:0;
+  width:3px;
+  height:100%;
+  background:linear-gradient(180deg,#38bdf8,#22c55e)
+}
+.timeline-item{
+  position:relative;
+  margin-bottom:24px
+}
+.timeline-dot{
+  position:absolute;
+  left:-32px;
+  top:6px;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#38bdf8;
+  box-shadow:0 0 15px rgba(56,189,248,.5)
+}
+.timeline-content{
+  background:#020617;
+  border:1px solid rgba(255,255,255,.06);
+  padding:16px;
+  border-radius:14px
+}
+.timeline-content h3{
+  color:#38bdf8;
+  margin-bottom:6px
+}
+.timeline-content p{
+  color:#94a3b8;
+  font-size:.95rem
+}
+.photo-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(2,6,23,.82);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:30
+}
+.photo-modal.open{display:flex}
+.photo-modal-content{
+  position:relative;
+  max-width:900px;
+  width:100%
+}
+.photo-modal-content img{
+  width:100%;
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6)
+}
+.close-modal{
+  position:absolute;
+  top:-14px;
+  right:-2px;
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:#38bdf8;
+  color:#03111f;
+  font-size:1.6rem;
+  font-weight:700;
+  cursor:pointer
+}
+.confetti{
+  position:fixed;
+  top:-20px;
+  width:10px;
+  height:16px;
+  background:linear-gradient(180deg,#38bdf8,#22c55e);
+  border-radius:3px;
+  animation:fall linear forwards;
+  z-index:40
+}
+@keyframes fall{
+  from{transform:translateY(0) rotate(0deg)}
+  to{transform:translateY(110vh) rotate(720deg)}
+}
+footer{
+  text-align:center;
+  margin-top:40px;
+  color:#94a3b8;
+  font-size:.9rem
+}
+body.light-mode{
+  background:radial-gradient(circle at top,#dbeafe,#f8fafc);
+  color:#0f172a
+}
+body.light-mode .card,
+body.light-mode .top-btn,
+body.light-mode .terminal-box{
+  background:rgba(255,255,255,.82);
+  color:#0f172a;
+  border-color:rgba(15,23,42,.08)
+}
+body.light-mode .bio-item,
+body.light-mode .project-chip,
+body.light-mode .timeline-content{
+  background:#eff6ff;
+  color:#0f172a
+}
+body.light-mode .hero p,
+body.light-mode .fact,
+body.light-mode footer,
+body.light-mode #terminalText,
+body.light-mode .bio-item strong,
+body.light-mode .project-chip p,
+body.light-mode .timeline-content p{
+  color:#475569
+}
+@media(max-width:700px){
+  .hero h1{font-size:2.45rem}
+  .top-actions{
+    left:12px;
+    right:12px;
+    justify-content:center;
+    top:12px
+  }
+  .hero{padding-top:95px}
+}
 </style>
 </head>
 <body>
 <canvas id="bg"></canvas>
+
 <div class="top-actions">
   <button id="themeToggle" class="top-btn">Ganti Mode</button>
-  <button id="wowBtn" class="top-btn accent">Pencet ini</button>
+  <button id="wowBtn" class="top-btn accent">Mode WAH</button>
 </div>
+
 <section class="hero">
   <img src="foto.jpg" alt="Foto Azis">
   <h1>Azis Kurniawan</h1>
   <p>@azzkrnss</p>
   <p class="typing" id="typing"></p>
+
   <div class="terminal-box">
     <div class="terminal-dots"><span></span><span></span><span></span></div>
     <div id="terminalText"></div>
   </div>
 </section>
+
 <div class="container">
   <div class="card tilt-card">
     <h2>Biodata</h2>
@@ -86,6 +371,43 @@ body.light-mode .hero p,body.light-mode .fact,body.light-mode footer,body.light-
     <p>Versi paling valid dari mode serius: duduk di lab komputer, layar menyala, dan muka sok fokus.</p>
     <img id="photoPreview" class="photo-preview" src="foto.jpg" alt="Foto Azis lagi ngoding">
     <p style="margin-top:10px;color:#94a3b8;font-size:.95rem;">Klik fotonya buat lihat lebih besar.</p>
+  </div>
+
+  <div class="card tilt-card">
+    <h2>Riwayat Pendidikan</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>SD</h3>
+          <p>SD 005 TD</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>SMP</h3>
+          <p>MTs LKMD</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>SMA</h3>
+          <p>SMA Tapung</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Kuliah</h3>
+          <p>UIN SUSKA Riau — Sistem Informasi</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="card tilt-card">
@@ -109,9 +431,18 @@ body.light-mode .hero p,body.light-mode .fact,body.light-mode footer,body.light-
   <div class="card tilt-card">
     <h2>Project Aura</h2>
     <div class="mini-projects">
-      <div class="project-chip"><h3>Portfolio Deployment</h3><p>Berhasil bikin website pribadi online dan bikin orang bertanya ini bikin sendiri atau tidak.</p></div>
-      <div class="project-chip"><h3>Lab Coding Mode</h3><p>Spesialis membuka editor sambil kelihatan sangat sibuk dan produktif.</p></div>
-      <div class="project-chip"><h3>Debug Mental Engine</h3><p>Mencoba menyelesaikan error di code dan di hidup dengan metode trial and error.</p></div>
+      <div class="project-chip">
+        <h3>Portfolio Deployment</h3>
+        <p>Berhasil bikin website pribadi online dan bikin orang bertanya ini bikin sendiri atau tidak.</p>
+      </div>
+      <div class="project-chip">
+        <h3>Lab Coding Mode</h3>
+        <p>Spesialis membuka editor sambil kelihatan sangat sibuk dan produktif.</p>
+      </div>
+      <div class="project-chip">
+        <h3>Debug Mental Engine</h3>
+        <p>Mencoba menyelesaikan error di code dan di hidup dengan metode trial and error.</p>
+      </div>
     </div>
   </div>
 
@@ -141,34 +472,169 @@ body.light-mode .hero p,body.light-mode .fact,body.light-mode footer,body.light-
 <script>
 const text='Mahasiswa Sistem Informasi yang lagi ngoding di lab komputer kampus dan terlihat sangat meyakinkan.';
 let i=0;
-function typing(){if(i<text.length){document.getElementById('typing').innerHTML+=text.charAt(i);i++;setTimeout(typing,32)}}
+function typing(){
+  if(i<text.length){
+    document.getElementById('typing').innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(typing,32);
+  }
+}
 typing();
 
-const terminalLines=['> booting profile system...','> loading mahasiswa mode...','> syncing ambisi with realita...','> profile ready.'];
-let terminalIndex=0,charIndex=0;const terminalText=document.getElementById('terminalText');
-function typeTerminal(){if(terminalIndex<terminalLines.length){const currentLine=terminalLines[terminalIndex];if(charIndex<currentLine.length){terminalText.innerHTML+=currentLine.charAt(charIndex);charIndex++;setTimeout(typeTerminal,28)}else{terminalText.innerHTML+='<br>';terminalIndex++;charIndex=0;setTimeout(typeTerminal,220)}}}
+const terminalLines=[
+  '> booting profile system...',
+  '> loading mahasiswa mode...',
+  '> syncing ambisi with realita...',
+  '> profile ready.'
+];
+let terminalIndex=0,charIndex=0;
+const terminalText=document.getElementById('terminalText');
+
+function typeTerminal(){
+  if(terminalIndex<terminalLines.length){
+    const currentLine=terminalLines[terminalIndex];
+    if(charIndex<currentLine.length){
+      terminalText.innerHTML+=currentLine.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeTerminal,28);
+    }else{
+      terminalText.innerHTML+='<br>';
+      terminalIndex++;
+      charIndex=0;
+      setTimeout(typeTerminal,220);
+    }
+  }
+}
 setTimeout(typeTerminal,400);
 
-const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show')}})},{threshold:.12});
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{threshold:.12});
+
 document.querySelectorAll('.card').forEach(card=>observer.observe(card));
 
-document.querySelectorAll('.fill').forEach(f=>{setTimeout(()=>{f.style.width=f.dataset.width},650)});
+document.querySelectorAll('.fill').forEach(f=>{
+  setTimeout(()=>{
+    f.style.width=f.dataset.width;
+  },650);
+});
 
-document.querySelectorAll('.counter').forEach(counter=>{let update=()=>{let target=+counter.dataset.target;let current=+counter.innerText;let inc=target/80;if(current<target){counter.innerText=Math.ceil(current+inc);setTimeout(update,20)}else{counter.innerText=target}};update()});
+document.querySelectorAll('.counter').forEach(counter=>{
+  let update=()=>{
+    let target=+counter.dataset.target;
+    let current=+counter.innerText;
+    let inc=target/80;
+    if(current<target){
+      counter.innerText=Math.ceil(current+inc);
+      setTimeout(update,20);
+    }else{
+      counter.innerText=target;
+    }
+  };
+  update();
+});
 
-const facts=['Azis pernah debugging error yang ternyata cuma typo.','Azis percaya kopi adalah bahan bakar coding.','Azis pernah membuka 25 tab StackOverflow.','Azis sedang mencoba tidak panic saat error muncul.','Azis lagi ngoding di lab komputer kampus.','Azis terlihat santai, padahal di dalam kepala ada banyak tab terbuka.'];
-function randomFact(){document.getElementById('factText').innerText=facts[Math.floor(Math.random()*facts.length)]}
+const facts=[
+  'Azis pernah debugging error yang ternyata cuma typo.',
+  'Azis percaya kopi adalah bahan bakar coding.',
+  'Azis pernah membuka 25 tab StackOverflow.',
+  'Azis sedang mencoba tidak panic saat error muncul.',
+  'Azis lagi ngoding di lab komputer kampus.',
+  'Azis terlihat santai, padahal di dalam kepala ada banyak tab terbuka.'
+];
 
-const canvas=document.getElementById('bg');const ctx=canvas.getContext('2d');function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}resizeCanvas();window.addEventListener('resize',resizeCanvas);
-let particles=[];for(let i=0;i<70;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2,d:Math.random()*1})}
-function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='rgba(56,189,248,0.7)';particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);ctx.fill()});particles.forEach(p=>{p.y+=p.d;if(p.y>canvas.height){p.y=0;p.x=Math.random()*canvas.width}})}setInterval(draw,33);
+function randomFact(){
+  document.getElementById('factText').innerText =
+    facts[Math.floor(Math.random()*facts.length)];
+}
 
-document.querySelectorAll('.tilt-card').forEach(card=>{card.addEventListener('mousemove',e=>{const rect=card.getBoundingClientRect();const x=e.clientX-rect.left;const y=e.clientY-rect.top;const rotateX=((y/rect.height)-0.5)*-8;const rotateY=((x/rect.width)-0.5)*8;card.style.transform=`perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`});card.addEventListener('mouseleave',()=>{card.style.transform=''})});
+const canvas=document.getElementById('bg');
+const ctx=canvas.getContext('2d');
 
-const photoModal=document.getElementById('photoModal');const photoPreview=document.getElementById('photoPreview');const photoModalImg=document.getElementById('photoModalImg');const closeModal=document.getElementById('closeModal');photoPreview.addEventListener('click',()=>{photoModal.classList.add('open');photoModalImg.src=photoPreview.src});closeModal.addEventListener('click',()=>photoModal.classList.remove('open'));photoModal.addEventListener('click',e=>{if(e.target===photoModal)photoModal.classList.remove('open')});
+function resizeCanvas(){
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize',resizeCanvas);
 
-document.getElementById('themeToggle').addEventListener('click',()=>document.body.classList.toggle('light-mode'));
-document.getElementById('wowBtn').addEventListener('click',()=>{for(let i=0;i<18;i++){const c=document.createElement('span');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.animationDuration=(1.8+Math.random()*1.5)+'s';c.style.opacity=0.7+Math.random()*0.3;document.body.appendChild(c);setTimeout(()=>c.remove(),3200)}});
+let particles=[];
+for(let i=0;i<70;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    r:Math.random()*2,
+    d:Math.random()*1
+  });
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle='rgba(56,189,248,0.7)';
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+    ctx.fill();
+  });
+  particles.forEach(p=>{
+    p.y+=p.d;
+    if(p.y>canvas.height){
+      p.y=0;
+      p.x=Math.random()*canvas.width;
+    }
+  });
+}
+setInterval(draw,33);
+
+document.querySelectorAll('.tilt-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const rect=card.getBoundingClientRect();
+    const x=e.clientX-rect.left;
+    const y=e.clientY-rect.top;
+    const rotateX=((y/rect.height)-0.5)*-8;
+    const rotateY=((x/rect.width)-0.5)*8;
+    card.style.transform=`perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='';
+  });
+});
+
+const photoModal=document.getElementById('photoModal');
+const photoPreview=document.getElementById('photoPreview');
+const photoModalImg=document.getElementById('photoModalImg');
+const closeModal=document.getElementById('closeModal');
+
+photoPreview.addEventListener('click',()=>{
+  photoModal.classList.add('open');
+  photoModalImg.src=photoPreview.src;
+});
+
+closeModal.addEventListener('click',()=>photoModal.classList.remove('open'));
+
+photoModal.addEventListener('click',e=>{
+  if(e.target===photoModal) photoModal.classList.remove('open');
+});
+
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  document.body.classList.toggle('light-mode');
+});
+
+document.getElementById('wowBtn').addEventListener('click',()=>{
+  for(let i=0;i<18;i++){
+    const c=document.createElement('span');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.animationDuration=(1.8+Math.random()*1.5)+'s';
+    c.style.opacity=0.7+Math.random()*0.3;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3200);
+  }
+});
 </script>
 </body>
-</html>
+  </html>
